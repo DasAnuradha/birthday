@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Animation</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="gift-container">
+        <div class="gift-box">
+            <input type="checkbox" name="" id="click"> 
+            <label for="click" class="click"></label>
+            <div class="text"> 
+                <br>
+                <!-- <img src="ankan.jpeg" alt=""> -->
+                <br>
+                <button onclick="togglePopup()" class="btn"><span>Note</span></button>
+            </div>
+        </div>
+        <div class="popup" id="popup-1">
+            <div class="overlay" onclick="togglePopup()"></div>
+            <div class="content">
+                <!--  -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = new Audio('bday.mp3');
+            document.querySelector('#click').addEventListener('change', function () {
+                if (this.checked) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+        });
+
+        // function togglePopup() {
+        //     document.getElementById("popup-1").classList.toggle("active");
+        //     const giftBox = document.querySelector('.gift-box');
+        //     if (document.getElementById("popup-1").classList.contains('active')) {
+        //         giftBox.style.display = 'none';
+        //     } else {
+        //         giftBox.style.display = 'block';
+        //     }
+        // }
+        function togglePopup() {
+            const popup = document.getElementById("popup-1");
+            const giftBox = document.querySelector('.gift-box');
+            popup.classList.toggle("active");
+
+            if (popup.classList.contains('active')) {
+                giftBox.style.display = 'none';
+                startTypewriterEffect();
+            } else {
+                giftBox.style.display = 'block';
+            }
+        }
+
+       
+    </script>
+    <script src="script2.js"></script>
+</body>
+</html>
